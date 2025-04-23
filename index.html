@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Hack Simulation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #1e1e1e, #0c0c0c);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .status {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .progress-bar-container {
+      margin-top: 40px;
+      width: 90%;
+      max-width: 500px;
+      height: 30px;
+      background: #333;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid #555;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 1%;
+      background: linear-gradient(to right, #feda75, #fa7e1e, #d62976);
+      transition: width 0.2s ease-in-out;
+    }
+
+    .percent-text {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Instagram</div>
+    <div class="status" id="status">Hacking in progress... please wait</div>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="bar"></div>
+    </div>
+    <div class="percent-text" id="percent">1%</div>
+    <div class="footer">⚠️ Simulation Only. For entertainment purpose 😅</div>
+  </div>
+
+  <script>
+    let percent = 1;
+    const bar = document.getElementById("bar");
+    const percentText = document.getElementById("percent");
+    const statusText = document.getElementById("status");
+
+    function updateProgress() {
+      if (percent <= 100) {
+        bar.style.width = percent + "%";
+        percentText.innerText = percent + "%";
+
+        // Optional: Status updates
+        if (percent === 50) {
+          statusText.innerText = "Accessing target data...";
+        } else if (percent === 90) {
+          statusText.innerText = "Finalizing hack...";
+        } else if (percent === 100) {
+          statusText.innerText = "Hack Complete ✅";
+        }
+
+        percent++;
+        setTimeout(updateProgress, 100);
+      }
+    }
+
+    updateProgress();
+  </script>
+</body>
+</html>
